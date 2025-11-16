@@ -15,6 +15,15 @@ function App() {
     const { name, value, type, checked } = e.target
   }
 
+  let newValue
+
+  if (type === 'checkbox') {
+    newValue = checked // per i checkbox uso la proprietà checked
+  } else {
+    newValue = value // per gli altri input uso value
+  }
+
+
   return (
     <>
 
