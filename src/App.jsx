@@ -13,14 +13,20 @@ function App() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
-  }
 
-  let newValue
+    let newValue
 
-  if (type === 'checkbox') {
-    newValue = checked // per i checkbox uso la proprietà checked
-  } else {
-    newValue = value // per gli altri input uso value
+    if (type === 'checkbox') {
+      newValue = checked // per i checkbox uso la proprietà checked
+    } else {
+      newValue = value // per gli altri input uso value
+    }
+
+    // aggiornamento dello stato
+    setFormData({
+      ...formData, // spread per copiare tutti i campi esistenti
+      [name]: newValue //sovrascrivo solo il campo modificato
+    })
   }
 
 
