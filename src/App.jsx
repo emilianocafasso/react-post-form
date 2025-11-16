@@ -11,6 +11,9 @@ function App() {
     public: 'false' //booleano - checkbox
   })
 
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target
+  }
 
   return (
     <>
