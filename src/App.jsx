@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
-
+const endpoint = 'https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts'
 function App() {
 
   const [formData, setFormData] = useState({
@@ -29,6 +29,24 @@ function App() {
     })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault() // prevengo refresh
+
+    axios.post(endpoint, formData)
+      .then((resp) => {
+        console.log(resp.data);
+
+        setFormData({
+          author: '',
+          title: '',
+          body: '',
+          public: false
+        })
+      })
+      .catch((err) => {
+        alert('Errore')
+      })
+  }
 
   return (
     <>
