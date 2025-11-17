@@ -36,6 +36,7 @@ function App() {
       .then((resp) => {
         console.log(resp.data);
 
+        // resetto i campi del form
         setFormData({
           author: '',
           title: '',
@@ -50,7 +51,33 @@ function App() {
 
   return (
     <>
+      <h1>Invia il tuo form all'Endpoint</h1>
 
+      <form onSubmit={handleSubmit}>
+
+        <div>
+          <h2>Autore</h2>
+          <input type="text" name='author' value={formData.author} onChange={handleChange} />
+        </div>
+
+        <div>
+          <h2>Titolo</h2>
+          <input type="text" name='title' value={formData.title} onChange={handleChange} />
+        </div>
+
+        <div>
+          <h2>Body</h2>
+          <input type="text" name='body' value={formData.body} onChange={handleChange} />
+        </div>
+
+        <div>
+          <h2>Pubblico</h2>
+          <input type="checkbox" name='public' value={formData.public} onChange={handleChange} />
+        </div>
+
+        <button type='submit'>Invia</button>
+
+      </form>
     </>
   )
 }
